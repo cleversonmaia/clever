@@ -15,6 +15,12 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome', 42);
+            $table->integer('estoqueMaximo');
+            $table->integer('estoqueMinimo');
+            $table->double('precoCompra', 8,2);
+            $table->double('precoVenda', 8,2);
+            $table->enum('status', array('ATIVO', 'INATIVO'));
             $table->timestamps();
         });
     }
